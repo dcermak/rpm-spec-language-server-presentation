@@ -1,0 +1,118 @@
+# -*- org-confirm-babel-evaluate: nil; -*-
+#+AUTHOR: Dan Čermák
+#+DATE: June 13, 2024
+#+EMAIL: dcermak@suse.com
+#+TITLE: Creating a Language Server for RPM Spec Files
+
+#+REVEAL_ROOT: ./node_modules/reveal.js/
+#+REVEAL_THEME: simple
+#+REVEAL_PLUGINS: (highlight notes history)
+#+OPTIONS: toc:nil
+#+REVEAL_DEFAULT_FRAG_STYLE: appear
+#+REVEAL_INIT_OPTIONS: transition: 'none', hash: true
+#+OPTIONS: num:nil toc:nil center:nil reveal_title_slide:nil
+#+REVEAL_EXTRA_CSS: ./node_modules/@fortawesome/fontawesome-free/css/all.min.css
+#+REVEAL_EXTRA_CSS: ./custom-style.css
+#+REVEAL_HIGHLIGHT_CSS: ./node_modules/reveal.js/plugin/highlight/zenburn.css
+
+#+REVEAL_TITLE_SLIDE: <h2 class="title">%t</h2>
+#+REVEAL_TITLE_SLIDE: <p class="subtitle" style="color: Gray;">%s</p>
+#+REVEAL_TITLE_SLIDE: <p class="author">%a</p>
+#+REVEAL_TITLE_SLIDE: <div style="float:left"><a href="https://www.devconf.info/cz/" target="_blank"><img src="./media/devconf-cz-bw.svg" height="50px"/></a></div>
+#+REVEAL_TITLE_SLIDE: <div style="float:right;font-size:35px;"><p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#"><a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+#+REVEAL_TITLE_SLIDE: CC BY 4.0 <i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i></a></p></div>
+
+* who -u
+
+Dan Čermák
+
+@@html: <div style="float:center">@@
+@@html: <table class="who-table">@@
+@@html: <tr><td><i class="fab fa-suse"></i></td><td> Software Developer @SUSE, SLE BCI releng</td></tr>@@
+@@html: <tr><td><i class="fab fa-fedora"></i></td><td> i3 SIG, Package maintainer</td></tr>@@
+@@html: <tr><td><i class="far fa-heart"></i></td><td> Developer Tools, Testing and Documentation, Home Automation</td></tr>@@
+@@html: <tr></tr>@@
+@@html: <tr></tr>@@
+@@html: <tr><td><i class="fa-solid fa-globe"></i></td><td> <a href="https://dancermak.name/">https://dancermak.name</a></td></tr>@@
+@@html: <tr><td><i class="fab fa-github"></i></td><td> <a href="https://github.com/dcermak/">dcermak</a></td></tr>@@
+@@html: <tr><td><i class="fab fa-mastodon"></i></td><td> <a href="https://mastodon.social/@Defolos">@Defolos@mastodon.social</a></td></tr>@@
+@@html: </table>@@
+@@html: </div>@@
+
+
+* What is a Language Server?
+
+#+begin_notes
+- old state: every language has a plugin for every editor
+
+- LSP: central server for code smarts
+- JSON RPC based protocol
+- support for syntax highlighting, code completion, jump to definition & references, code folding, documentation
+- introduced by VSCode, originally invented by Microsoft, now open standard on github
+#+end_notes
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+@@html:<img src="./media/no-lsp.svg" height="500px"/>@@
+
+#+REVEAL: split
+with a Language Server:
+
+#+ATTR_REVEAL: :frag appear :frag_idx 2
+@@html:<img src="./media/with-lsp.svg" height="500px"/>@@
+
+
+* RPM Spec Files
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+@@html:<img src="./media/rpm-spec-file-example.png" height="400px"/>@@
+
+#+ATTR_REVEAL: :frag (appear appear appear) :frag_idx (2 3 4)
+- m4 inspired macro language
+- no AST, processed & executed during build
+- everything can have side effects
+
+
+* Building the LSP
+
+#+ATTR_REVEAL: :frag (appear)
+- Build as part of [[https://hackweek.opensuse.org/23/projects/lsp-server-for-spec-files][Hackweek 23]] by Matěj Cepl, Dan Čermák & Jehan Singh
+- Python + @@html:<i class="fa-brands fa-github"></i>@@ [[https://github.com/openlawlibrary/pygls/][openlawlibrary/pygls]] + @@html:<i class="fa-brands fa-github"></i>@@ [[https://github.com/packit/specfile][packit/specfile]]
+
+
+** Challenges
+
+#+ATTR_REVEAL: :frag (appear)
+- hidden global state
+- in memory storage required
+- parsing errors are un-recoverable
+
+* Demo!
+
+
+
+* Roadmap
+
+#+ATTR_REVEAL: :frag (appear)
+- commands to build RPMs
+- investigate [[https://gitlab.com/cryptomilk/tree-sitter-rpmspec][tree-sitter]] integration
+- run LSP in a distro-specific container
+- better testing
+- publish the VSCode extension
+- your idea here!
+
+
+* Links
+
+@@html:<img src="media/presentation-qr.svg" height="300px"/>@@
+
+@@html:<i class="fa-brands fa-github"></i>@@ [[https://github.com/dcermak/rpm-spec-language-server][=github.com/dcermak/rpm-spec-language-server=]]
+
+@@html:<i class="fa-solid fa-person-chalkboard"></i>@@ [[https://dcermak.github.io/rpm-spec-language-server-presentation/rpm-spec-language-server-presentation.html][dcermak.github.io/rpm-spec-language-server-presentation]]
+
+
+
+
+* Questions?
+
+#+ATTR_REVEAL: :frag (appear)
+Answers!
