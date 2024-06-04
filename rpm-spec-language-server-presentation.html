@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Creating a Language Server for RPM Spec Files</title>
+<meta name="author" content="Dan Čermák"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./node_modules/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./node_modules/reveal.js/dist/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css"/>
+
+<link rel="stylesheet" href="./custom-style.css"/>
+<link rel="stylesheet" href="./node_modules/reveal.js/plugin/highlight/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './node_modules/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h2 class="title">Creating a Language Server for RPM Spec Files</h2>
+<p class="subtitle" style="color: Gray;"></p>
+<p class="author">Dan Čermák</p>
+<div style="float:left"><a href="https://www.devconf.info/cz/" target="_blank"><img src="./media/devconf-cz-bw.svg" height="50px"/></a></div>
+<div style="float:right;font-size:35px;"><p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#"><a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+CC BY 4.0 <i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i></a></p></div>
+</section>
+
+<section>
+<section id="slide-org8ce17d5">
+<h2 id="org8ce17d5">who -u</h2>
+<p>
+Dan Čermák
+</p>
+
+<p>
+ <div style="float:center">
+ <table class="who-table">
+ <tr><td><i class="fab fa-suse"></i></td><td> Software Developer @SUSE, SLE BCI releng</td></tr>
+ <tr><td><i class="fab fa-fedora"></i></td><td> i3 SIG, Package maintainer</td></tr>
+ <tr><td><i class="far fa-heart"></i></td><td> Developer Tools, Testing and Documentation, Home Automation</td></tr>
+ <tr></tr>
+ <tr></tr>
+ <tr><td><i class="fa-solid fa-globe"></i></td><td> <a href="https://dancermak.name/">https://dancermak.name</a></td></tr>
+ <tr><td><i class="fab fa-github"></i></td><td> <a href="https://github.com/dcermak/">dcermak</a></td></tr>
+ <tr><td><i class="fab fa-mastodon"></i></td><td> <a href="https://mastodon.social/@Defolos">@Defolos@mastodon.social</a></td></tr>
+ </table>
+ </div>
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orge28f74a">
+<h2 id="orge28f74a">What is a Language Server?</h2>
+<aside class="notes">
+<ul>
+<li>old state: every language has a plugin for every editor</li>
+
+<li>LSP: central server for code smarts</li>
+<li>JSON RPC based protocol</li>
+<li>support for syntax highlighting, code completion, jump to definition &amp; references, code folding, documentation</li>
+<li>introduced by VSCode, originally invented by Microsoft, now open standard on github</li>
+
+</ul>
+
+</aside>
+
+<p data-fragment-index="1" class="fragment appear">
+<img src="./media/no-lsp.svg" height="500px"/>
+</p>
+
+</section>
+<section id="slide-orge28f74a-split">
+<p>
+with a Language Server:
+</p>
+
+<p data-fragment-index="2" class="fragment appear">
+<img src="./media/with-lsp.svg" height="500px"/>
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgf455268">
+<h2 id="orgf455268">RPM Spec Files</h2>
+<p data-fragment-index="1" class="fragment appear">
+<img src="./media/rpm-spec-file-example.png" height="400px"/>
+</p>
+
+<ul>
+<li data-fragment-index="2" class="fragment appear">m4 inspired macro language</li>
+<li data-fragment-index="3" class="fragment appear">no AST, processed &amp; executed during build</li>
+<li data-fragment-index="4" class="fragment appear">everything can have side effects</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org0bbd614">
+<h2 id="org0bbd614">Building the LSP</h2>
+<ul>
+<li class="fragment appear">Build as part of <a href="https://hackweek.opensuse.org/23/projects/lsp-server-for-spec-files">Hackweek 23</a> by Matěj Cepl, Dan Čermák &amp; Jehan Singh</li>
+<li class="fragment appear">Python + <i class="fa-brands fa-github"></i> <a href="https://github.com/openlawlibrary/pygls/">openlawlibrary/pygls</a> + <i class="fa-brands fa-github"></i> <a href="https://github.com/packit/specfile">packit/specfile</a></li>
+
+</ul>
+
+
+</section>
+<section id="slide-org187b4ea">
+<h3 id="org187b4ea">Challenges</h3>
+<ul>
+<li class="fragment appear">hidden global state</li>
+<li class="fragment appear">in memory storage required</li>
+<li class="fragment appear">parsing errors are un-recoverable</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orge8facd8">
+<h2 id="orge8facd8">Demo!</h2>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-orge904744">
+<h2 id="orge904744">Roadmap</h2>
+<ul>
+<li class="fragment appear">commands to build RPMs</li>
+<li class="fragment appear">investigate <a href="https://gitlab.com/cryptomilk/tree-sitter-rpmspec">tree-sitter</a> integration</li>
+<li class="fragment appear">run LSP in a distro-specific container</li>
+<li class="fragment appear">better testing</li>
+<li class="fragment appear">publish the VSCode extension</li>
+<li class="fragment appear">your idea here!</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgf048cbb">
+<h2 id="orgf048cbb">Links</h2>
+<p>
+<img src="media/presentation-qr.svg" height="300px"/>
+</p>
+
+<p>
+<i class="fa-brands fa-github"></i> <a href="https://github.com/dcermak/rpm-spec-language-server"><code>github.com/dcermak/rpm-spec-language-server</code></a>
+</p>
+
+<p>
+<i class="fa-solid fa-person-chalkboard"></i> <a href="https://dcermak.github.io/rpm-spec-language-server-presentation/rpm-spec-language-server-presentation.html">dcermak.github.io/rpm-spec-language-server-presentation</a>
+</p>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-org76d155d">
+<h2 id="org76d155d">Questions?</h2>
+<p class="fragment (appear)">
+Answers!
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./node_modules/reveal.js/dist/reveal.js"></script>
+<script src="./node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./node_modules/reveal.js/plugin/notes/notes.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealHighlight, RevealNotes, history],
+transition: 'none', hash: true
+});
+
+</script>
+</body>
+</html>
