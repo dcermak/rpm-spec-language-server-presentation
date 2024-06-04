@@ -75,7 +75,7 @@ with a Language Server:
 * Building the LSP
 
 #+ATTR_REVEAL: :frag (appear)
-- Build as part of [[https://hackweek.opensuse.org/23/projects/lsp-server-for-spec-files][Hackweek 23]] by Matěj Cepl, Dan Čermák & Jehan Singh
+- Build as part of [[https://hackweek.opensuse.org/23/projects/lsp-server-for-spec-files][Hackweek 23]] by [[https://floss.social/@mcepl][Matěj Cepl]], [[https://dancermak.name][Dan Čermák]] & Jehan Singh
 - Python + @@html:<i class="fa-brands fa-github"></i>@@ [[https://github.com/openlawlibrary/pygls/][openlawlibrary/pygls]] + @@html:<i class="fa-brands fa-github"></i>@@ [[https://github.com/packit/specfile][packit/specfile]]
 
 
