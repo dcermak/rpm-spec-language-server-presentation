@@ -40,8 +40,8 @@ CC BY 4.0 <i class="fab fa-creative-commons"></i> <i class="fab fa-creative-comm
 </section>
 
 <section>
-<section id="slide-orga16cfa5">
-<h2 id="orga16cfa5">who -u</h2>
+<section id="slide-org3b1b36e">
+<h2 id="org3b1b36e">who -u</h2>
 <p>
 Dan Čermák
 </p>
@@ -65,8 +65,8 @@ Dan Čermák
 </section>
 </section>
 <section>
-<section id="slide-org82bb37c">
-<h2 id="org82bb37c">What is a Language Server?</h2>
+<section id="slide-org8ce6cc8">
+<h2 id="org8ce6cc8">What is a Language Server?</h2>
 <aside class="notes">
 <ul>
 <li>old state: every language has a plugin for every editor</li>
@@ -85,7 +85,7 @@ Dan Čermák
 </p>
 
 </section>
-<section id="slide-org82bb37c-split">
+<section id="slide-org8ce6cc8-split">
 <p>
 with a Language Server:
 </p>
@@ -98,8 +98,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-orga561b40">
-<h2 id="orga561b40">RPM Spec Files</h2>
+<section id="slide-org7517018">
+<h2 id="org7517018">RPM Spec Files</h2>
 <p data-fragment-index="1" class="fragment appear">
 <img src="./media/rpm-spec-file-example.png" height="400px"/>
 </p>
@@ -107,7 +107,6 @@ with a Language Server:
 <ul>
 <li data-fragment-index="2" class="fragment appear">m4 inspired macro language</li>
 <li data-fragment-index="3" class="fragment appear">no AST, processed &amp; executed during build</li>
-<li data-fragment-index="4" class="fragment appear">everything can have side effects</li>
 
 </ul>
 
@@ -115,42 +114,59 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org4c696df">
-<h2 id="org4c696df">Building the LSP</h2>
+<section id="slide-orga71e657">
+<h2 id="orga71e657">Building the LSP</h2>
 <ul>
 <li class="fragment appear">Build as part of <a href="https://hackweek.opensuse.org/23/projects/lsp-server-for-spec-files">Hackweek 23</a> by <a href="https://floss.social/@mcepl">Matěj Cepl</a>, <a href="https://dancermak.name">Dan Čermák</a> &amp; Jehan Singh</li>
-<li class="fragment appear">Python + <i class="fa-brands fa-github"></i> <a href="https://github.com/openlawlibrary/pygls/">openlawlibrary/pygls</a> + <i class="fa-brands fa-github"></i> <a href="https://github.com/packit/specfile">packit/specfile</a></li>
+<li class="fragment appear">Python</li>
+<li class="fragment appear">LSP: <i class="fa-brands fa-github"></i> <a href="https://github.com/openlawlibrary/pygls/">openlawlibrary/pygls</a></li>
+<li class="fragment appear">RPM parsing: <i class="fa-brands fa-github"></i> <a href="https://github.com/packit/specfile">packit/specfile</a></li>
 
 </ul>
 
+</section>
+<section id="slide-org6995136">
+<h3 id="org6995136">Features</h3>
+<ul>
+<li class="fragment appear">autocompletion using your system macros + spec sections</li>
+<li class="fragment appear">expand macros on hover</li>
+<li class="fragment appear">jump to definition for macros</li>
+<li class="fragment appear">breadcrumbs</li>
+
+</ul>
 
 </section>
-<section id="slide-orgb5081db">
-<h3 id="orgb5081db">Challenges</h3>
+<section id="slide-org95dff02">
+<h3 id="org95dff02">Challenges</h3>
 <ul>
 <li class="fragment appear">hidden global state</li>
 <li class="fragment appear">in memory storage required</li>
+<li class="fragment appear">finding references via <code>rpm_macro($macro_name)</code></li>
 <li class="fragment appear">parsing errors are un-recoverable</li>
+<li class="fragment appear">editors are weird</li>
+<li class="fragment appear">macros are OS dependent</li>
 
 </ul>
 
 </section>
 </section>
 <section>
-<section id="slide-org1bbc038">
-<h2 id="org1bbc038">Demo!</h2>
+<section id="slide-orgd492171">
+<h2 id="orgd492171">Demo!</h2>
 
 
 
 </section>
 </section>
 <section>
-<section id="slide-org7abf6c4">
-<h2 id="org7abf6c4">Roadmap</h2>
+<section id="slide-orgb8c4826">
+<h2 id="orgb8c4826">Roadmap</h2>
 <ul>
-<li class="fragment appear">commands to build RPMs</li>
+<li class="fragment appear">run LSP in a better distro-specific container</li>
 <li class="fragment appear">investigate <a href="https://gitlab.com/cryptomilk/tree-sitter-rpmspec">tree-sitter</a> integration</li>
-<li class="fragment appear">run LSP in a distro-specific container</li>
+<li class="fragment appear">better parser?</li>
+<li class="fragment appear">commands to build RPMs</li>
+<li class="fragment appear">syntax highlighting</li>
 <li class="fragment appear">better testing</li>
 <li class="fragment appear">publish the VSCode extension</li>
 <li class="fragment appear">your idea here!</li>
@@ -161,8 +177,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org877cc6b">
-<h2 id="org877cc6b">Links</h2>
+<section id="slide-orgdb71048">
+<h2 id="orgdb71048">Links</h2>
 <p>
 <img src="media/presentation-qr.svg" height="300px"/>
 </p>
@@ -181,8 +197,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org170b601">
-<h2 id="org170b601">Questions?</h2>
+<section id="slide-org86d2af2">
+<h2 id="org86d2af2">Questions?</h2>
 <p class="fragment (appear)">
 Answers!
 </p>
