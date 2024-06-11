@@ -69,22 +69,33 @@ with a Language Server:
 #+ATTR_REVEAL: :frag (appear appear appear) :frag_idx (2 3 4)
 - m4 inspired macro language
 - no AST, processed & executed during build
-- everything can have side effects
 
 
 * Building the LSP
 
 #+ATTR_REVEAL: :frag (appear)
 - Build as part of [[https://hackweek.opensuse.org/23/projects/lsp-server-for-spec-files][Hackweek 23]] by [[https://floss.social/@mcepl][Matěj Cepl]], [[https://dancermak.name][Dan Čermák]] & Jehan Singh
-- Python + @@html:<i class="fa-brands fa-github"></i>@@ [[https://github.com/openlawlibrary/pygls/][openlawlibrary/pygls]] + @@html:<i class="fa-brands fa-github"></i>@@ [[https://github.com/packit/specfile][packit/specfile]]
+- Python
+- LSP: @@html:<i class="fa-brands fa-github"></i>@@ [[https://github.com/openlawlibrary/pygls/][openlawlibrary/pygls]]
+- RPM parsing: @@html:<i class="fa-brands fa-github"></i>@@ [[https://github.com/packit/specfile][packit/specfile]]
 
+** Features
+
+#+ATTR_REVEAL: :frag (appear)
+- autocompletion using your system macros + spec sections
+- expand macros on hover
+- jump to definition for macros
+- breadcrumbs
 
 ** Challenges
 
 #+ATTR_REVEAL: :frag (appear)
 - hidden global state
 - in memory storage required
+- finding references via =rpm_macro($macro_name)=
 - parsing errors are un-recoverable
+- editors are weird
+- macros are OS dependent
 
 * Demo!
 
@@ -93,9 +104,11 @@ with a Language Server:
 * Roadmap
 
 #+ATTR_REVEAL: :frag (appear)
-- commands to build RPMs
+- run LSP in a better distro-specific container
 - investigate [[https://gitlab.com/cryptomilk/tree-sitter-rpmspec][tree-sitter]] integration
-- run LSP in a distro-specific container
+- better parser?
+- commands to build RPMs
+- syntax highlighting
 - better testing
 - publish the VSCode extension
 - your idea here!
