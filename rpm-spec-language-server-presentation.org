@@ -91,6 +91,9 @@ with a Language Server:
 - expand macros on hover
 - jump to definition for macros
 - breadcrumbs
+- experimental container mode
+
+* Demo!
 
 ** Challenges
 
@@ -101,10 +104,6 @@ with a Language Server:
 - parsing errors are un-recoverable
 - editors are weird
 - macros are OS dependent
-
-* Demo!
-
-
 
 * Roadmap
 
