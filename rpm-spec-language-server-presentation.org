@@ -110,7 +110,8 @@ with a Language Server:
 #+ATTR_REVEAL: :frag (appear)
 - run LSP in a better distro-specific container
 - investigate [[https://gitlab.com/cryptomilk/tree-sitter-rpmspec][tree-sitter]] integration
-- better parser?
+- better parser
+- integration with bash-lsp
 - commands to build RPMs
 - syntax highlighting
 - better testing
