@@ -117,6 +117,15 @@ with a Language Server:
 - publish the VSCode extension
 - your idea here!
 
+* 💙 Thank you 💚
+
+- Matěj Cepl
+- Maxwell G
+- Jakub Kadlčik
+- Dmitri Popov
+- Jehan Singh
+- Danilo Spinella
+- and all the testers
 
 * Links
 
