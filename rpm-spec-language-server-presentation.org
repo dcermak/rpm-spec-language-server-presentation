@@ -137,9 +137,7 @@ with a Language Server:
 @@html:<i class="fa-solid fa-person-chalkboard"></i>@@ [[https://dcermak.github.io/rpm-spec-language-server-presentation/rpm-spec-language-server-presentation.html][dcermak.github.io/rpm-spec-language-server-presentation]]
 
 
-
-
 * Questions?
 
 #+ATTR_REVEAL: :frag (appear)
-Answers!
+👉 Find me at the openSUSE booth!
