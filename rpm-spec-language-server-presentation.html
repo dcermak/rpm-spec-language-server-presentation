@@ -34,14 +34,14 @@
 <section id="sec-title-slide"><h2 class="title">Creating a Language Server for RPM Spec Files</h2>
 <p class="subtitle" style="color: Gray;"></p>
 <p class="author">Dan Čermák</p>
-<div style="float:left"><a href="https://www.devconf.info/cz/" target="_blank"><img src="./media/devconf-cz-bw.svg" height="50px"/></a></div>
+<div style="float:left"><a href="https://events.opensuse.org/conferences/oSC24" target="_blank"><img src="./media/osc24_logo.jpg" height="50px" style="margin-bottom:-12px"/>&nbsp; oSC24</a></div>
 <div style="float:right;font-size:35px;"><p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#"><a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
 CC BY 4.0 <i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i></a></p></div>
 </section>
 
 <section>
-<section id="slide-orgc690414">
-<h2 id="orgc690414">who -u</h2>
+<section id="slide-org21f2952">
+<h2 id="org21f2952">who -u</h2>
 <p>
 Dan Čermák
 </p>
@@ -65,8 +65,8 @@ Dan Čermák
 </section>
 </section>
 <section>
-<section id="slide-org6918786">
-<h2 id="org6918786">What is a Language Server?</h2>
+<section id="slide-orga155334">
+<h2 id="orga155334">What is a Language Server?</h2>
 <aside class="notes">
 <ul>
 <li>old state: every language has a plugin for every editor</li>
@@ -85,7 +85,7 @@ Dan Čermák
 </p>
 
 </section>
-<section id="slide-org6918786-split">
+<section id="slide-orga155334-split">
 <p>
 with a Language Server:
 </p>
@@ -98,8 +98,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-orgb53ff75">
-<h2 id="orgb53ff75">RPM Spec Files</h2>
+<section id="slide-org7cb85fe">
+<h2 id="org7cb85fe">RPM Spec Files</h2>
 <p data-fragment-index="1" class="fragment appear">
 <img src="./media/rpm-spec-file-example.png" height="400px"/>
 </p>
@@ -113,8 +113,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org0fc4259">
-<h2 id="org0fc4259">Why?</h2>
+<section id="slide-org9e709cc">
+<h2 id="org9e709cc">Why?</h2>
 <ul>
 <li class="fragment appear">Editor plugins simplistic &amp; inconsistent</li>
 <li class="fragment appear">I want a real IDE for spec files</li>
@@ -124,8 +124,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-orgc637c85">
-<h2 id="orgc637c85">Building the LSP</h2>
+<section id="slide-orgbbeb62b">
+<h2 id="orgbbeb62b">Building the LSP</h2>
 <ul>
 <li class="fragment appear">Build as part of <a href="https://hackweek.opensuse.org/23/projects/lsp-server-for-spec-files">Hackweek 23</a> by <a href="https://floss.social/@mcepl">Matěj Cepl</a>, <a href="https://dancermak.name">Dan Čermák</a> &amp; Jehan Singh</li>
 <li class="fragment appear">Python</li>
@@ -135,8 +135,8 @@ with a Language Server:
 </ul>
 
 </section>
-<section id="slide-orgc5e07b6">
-<h3 id="orgc5e07b6">Features</h3>
+<section id="slide-org70096f0">
+<h3 id="org70096f0">Features</h3>
 <ul>
 <li class="fragment appear">autocompletion using your system macros + spec sections</li>
 <li class="fragment appear">expand macros on hover</li>
@@ -149,13 +149,13 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-orge3f2c34">
-<h2 id="orge3f2c34">Demo!</h2>
-<div class="outline-text-2" id="text-orge3f2c34">
+<section id="slide-orgfcad853">
+<h2 id="orgfcad853">Demo!</h2>
+<div class="outline-text-2" id="text-orgfcad853">
 </div>
 </section>
-<section id="slide-orga651ba0">
-<h3 id="orga651ba0">Challenges</h3>
+<section id="slide-org1389adc">
+<h3 id="org1389adc">Challenges</h3>
 <ul>
 <li class="fragment appear">hidden global state</li>
 <li class="fragment appear">in memory storage required</li>
@@ -169,8 +169,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org71cb091">
-<h2 id="org71cb091">Roadmap</h2>
+<section id="slide-org7f1401f">
+<h2 id="org7f1401f">Roadmap</h2>
 <ul>
 <li class="fragment appear">run LSP in a better distro-specific container</li>
 <li class="fragment appear">investigate <a href="https://gitlab.com/cryptomilk/tree-sitter-rpmspec">tree-sitter</a> integration</li>
@@ -187,8 +187,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org975aef5">
-<h2 id="org975aef5">💙 Thank you 💚</h2>
+<section id="slide-org464d365">
+<h2 id="org464d365">💙 Thank you 💚</h2>
 <ul>
 <li>Matěj Cepl</li>
 <li>Maxwell G</li>
@@ -203,8 +203,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-orgda0ed60">
-<h2 id="orgda0ed60">Links</h2>
+<section id="slide-org522bfde">
+<h2 id="org522bfde">Links</h2>
 <p>
 <img src="media/presentation-qr.svg" height="300px"/>
 </p>
@@ -221,10 +221,10 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org0ab3380">
-<h2 id="org0ab3380">Questions?</h2>
+<section id="slide-org1ce752f">
+<h2 id="org1ce752f">Questions?</h2>
 <p class="fragment (appear)">
-👉 Find me at the openSUSE booth!
+Answers!
 </p>
 </section>
 </section>
