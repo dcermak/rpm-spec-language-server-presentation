@@ -140,4 +140,4 @@ with a Language Server:
 * Questions?
 
 #+ATTR_REVEAL: :frag (appear)
-👉 Find me at the openSUSE booth!
+Answers!
