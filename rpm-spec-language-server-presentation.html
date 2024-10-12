@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>Creating a Language Server for RPM Spec Files</title>
+<title>Modernizace nástrojů pro RPM spec soubory</title>
 <meta name="author" content="Dan Čermák"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -31,8 +31,8 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h2 class="title">Creating a Language Server for RPM Spec Files</h2>
-<p class="subtitle" style="color: Gray;"></p>
+<section id="sec-title-slide"><h2 class="title">Modernizace nástrojů pro RPM spec soubory</h2>
+<p class="subtitle" style="color: Gray;">Prototyp jazykového serveru</p>
 <p class="author">Dan Čermák</p>
 <div style="float:left"><a href="https://www.linuxdays.cz/2024/" target="_blank"><img src="./media/linuxdays.cz-logo.svg" height="50px" style="margin-bottom:-12px"/>&nbsp; LinuxDays.cz 2024</a></div>
 <div style="float:right;font-size:35px;"><p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#"><a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
@@ -40,8 +40,8 @@ CC BY 4.0 <i class="fab fa-creative-commons"></i> <i class="fab fa-creative-comm
 </section>
 
 <section>
-<section id="slide-org9615a3d">
-<h2 id="org9615a3d">who -u</h2>
+<section id="slide-orgf605209">
+<h2 id="orgf605209">who -u</h2>
 <p>
 Dan Čermák
 </p>
@@ -65,8 +65,8 @@ Dan Čermák
 </section>
 </section>
 <section>
-<section id="slide-org390f948">
-<h2 id="org390f948">What is a Language Server?</h2>
+<section id="slide-org33b1775">
+<h2 id="org33b1775">What is a Language Server?</h2>
 <aside class="notes">
 <ul>
 <li>old state: every language has a plugin for every editor</li>
@@ -85,7 +85,7 @@ Dan Čermák
 </p>
 
 </section>
-<section id="slide-org390f948-split">
+<section id="slide-org33b1775-split">
 <p>
 with a Language Server:
 </p>
@@ -98,8 +98,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org2cb25b0">
-<h2 id="org2cb25b0">RPM Spec Files</h2>
+<section id="slide-orgcbdc0e0">
+<h2 id="orgcbdc0e0">RPM Spec Files</h2>
 <p data-fragment-index="1" class="fragment appear">
 <img src="./media/rpm-spec-file-example.png" height="400px"/>
 </p>
@@ -113,8 +113,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org1ed6177">
-<h2 id="org1ed6177">Why?</h2>
+<section id="slide-org7181ffb">
+<h2 id="org7181ffb">Why?</h2>
 <ul>
 <li class="fragment appear">Editor plugins simplistic &amp; inconsistent</li>
 <li class="fragment appear">I want a real IDE for spec files</li>
@@ -124,19 +124,19 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-orgf11f49f">
-<h2 id="orgf11f49f">Building the LSP</h2>
+<section id="slide-org9ed61d1">
+<h2 id="org9ed61d1">Building the LSP</h2>
 <ul>
 <li class="fragment appear">Build as part of <a href="https://hackweek.opensuse.org/23/projects/lsp-server-for-spec-files">Hackweek 23</a> by <a href="https://floss.social/@mcepl">Matěj Cepl</a>, <a href="https://dancermak.name">Dan Čermák</a> &amp; Jehan Singh</li>
-<li class="fragment appear">Python</li>
+<li class="fragment appear"><i class="fa-brands fa-python"></i> Python</li>
 <li class="fragment appear">LSP: <i class="fa-brands fa-github"></i> <a href="https://github.com/openlawlibrary/pygls/">openlawlibrary/pygls</a></li>
 <li class="fragment appear">RPM parsing: <i class="fa-brands fa-github"></i> <a href="https://github.com/packit/specfile">packit/specfile</a></li>
 
 </ul>
 
 </section>
-<section id="slide-orge8ff516">
-<h3 id="orge8ff516">Features</h3>
+<section id="slide-orgc72ab25">
+<h3 id="orgc72ab25">Features</h3>
 <ul>
 <li class="fragment appear">autocompletion using your system macros + spec sections</li>
 <li class="fragment appear">expand macros on hover</li>
@@ -147,18 +147,23 @@ with a Language Server:
 </ul>
 
 </section>
-<section id="slide-orgc485c55">
-<h3 id="orgc485c55">autocompletion &amp; macro expansion</h3>
+<section id="slide-orgba68dc6">
+<h3 id="orgba68dc6">Autocompletion &amp; Macro Expansion</h3>
 <ul>
-<li class="fragment appear"><code>specfile</code> wraps <code>rpm -E %_dump</code> and <code>rpm -E $macro</code></li>
-<li class="fragment appear">spec sections obtained from upstream's documentation</li>
-<li class="fragment appear">and additional keywords</li>
+<li class="fragment appear"><i class="fa-brands fa-python"></i> <code>specfile</code> wraps:
+<ul>
+<li><code>rpm -E %_dump</code></li>
+<li><code>rpm -E %${macro}</code></li>
+
+</ul></li>
+<li class="fragment appear">spec sections and additional keywords</li>
 
 </ul>
 
+
 </section>
-<section id="slide-org797f268">
-<h3 id="org797f268">jump to definition</h3>
+<section id="slide-orgeac56eb">
+<h3 id="orgeac56eb">Jump to Definition</h3>
 <aside class="notes">
 <ul>
 <li>macros can have origins, in practice you see: <code>GLOBAL</code>, <code>SPEC</code>, <code>MACROFILES</code></li>
@@ -169,15 +174,20 @@ with a Language Server:
 
 <ul>
 <li class="fragment appear"><code>specfile</code> gives you origin of a macro</li>
-<li class="fragment appear">use regex searches in spec</li>
-<li class="fragment appear">or in <code>%_rpmmacrosdir</code></li>
-<li class="fragment appear">use autogenerated <code>Provides: rpm_macro($name)</code></li>
+<li class="fragment appear">use regex searches:
+<ul>
+<li>in spec</li>
+<li>in <code>%_rpmmacrosdir</code></li>
+<li>use autogenerated <code>Provides: rpm_macro($name)</code></li>
+
+</ul></li>
 
 </ul>
 
+
 </section>
-<section id="slide-org1f4bcf8">
-<h3 id="org1f4bcf8">Container Mode</h3>
+<section id="slide-org02cad51">
+<h3 id="org02cad51">Container Mode</h3>
 <aside class="notes">
 <ul>
 <li>rpm is using installed macros</li>
@@ -194,34 +204,31 @@ with a Language Server:
 <img src="./media/container-mode.svg" height="500px"/>
 </p>
 
+
 </section>
 </section>
 <section>
-<section id="slide-org6603800">
-<h2 id="org6603800">Demo!</h2>
-<div class="outline-text-2" id="text-org6603800">
+<section id="slide-org56646ba">
+<h2 id="org56646ba">Demo!</h2>
+<div class="outline-text-2" id="text-org56646ba">
 </div>
 </section>
-<section id="slide-orgd0ff840">
-<h3 id="orgd0ff840">Challenges</h3>
+<section id="slide-orgf08d350">
+<h3 id="orgf08d350">Challenges</h3>
 <ul>
 <li class="fragment appear">hidden global state</li>
 <li class="fragment appear">in memory storage required</li>
-
-</ul>
-
-<ul>
-<li>parsing errors are un-recoverable</li>
-<li>editors are weird</li>
-<li>macros are OS dependent</li>
+<li class="fragment appear">parsing errors are un-recoverable</li>
+<li class="fragment appear">editors are weird</li>
+<li class="fragment appear">macros are OS dependent</li>
 
 </ul>
 
 </section>
 </section>
 <section>
-<section id="slide-org91232ca">
-<h2 id="org91232ca">Roadmap</h2>
+<section id="slide-org8c44e04">
+<h2 id="org8c44e04">Roadmap</h2>
 <ul>
 <li class="fragment appear">improve container mode</li>
 <li class="fragment appear">investigate <a href="https://gitlab.com/cryptomilk/tree-sitter-rpmspec">tree-sitter</a> integration</li>
@@ -238,8 +245,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-orgfb1608a">
-<h2 id="orgfb1608a">💙 Thank you 💚</h2>
+<section id="slide-orge1f09c0">
+<h2 id="orge1f09c0">💙 Thank you 💚</h2>
 <ul>
 <li>Matěj Cepl</li>
 <li>Maxwell G</li>
@@ -254,8 +261,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-orgf961874">
-<h2 id="orgf961874">Links</h2>
+<section id="slide-org1c80690">
+<h2 id="org1c80690">Links</h2>
 <p>
 <img src="media/presentation-qr.svg" height="300px"/>
 </p>
@@ -272,8 +279,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org8254b0a">
-<h2 id="org8254b0a">Questions?</h2>
+<section id="slide-orgc83cfbb">
+<h2 id="orgc83cfbb">Questions?</h2>
 <p class="fragment (appear)">
 Answers!
 </p>
