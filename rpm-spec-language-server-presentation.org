@@ -94,14 +94,7 @@ with a Language Server:
 - breadcrumbs
 - experimental container mode
 
-** Autocompletion & Macro Expansion
-
-#+ATTR_REVEAL: :frag (appear)
-- @@html:<i class="fa-brands fa-python"></i>@@ =specfile= wraps:
-  * ~rpm -E %_dump~
-  * ~rpm -E %${macro}~
-- spec sections and additional keywords
-
+* Demo!
 
 ** Jump to Definition
 
