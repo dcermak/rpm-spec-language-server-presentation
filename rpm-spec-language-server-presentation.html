@@ -40,8 +40,8 @@ CC BY 4.0 <i class="fab fa-creative-commons"></i> <i class="fab fa-creative-comm
 </section>
 
 <section>
-<section id="slide-orgf605209">
-<h2 id="orgf605209">who -u</h2>
+<section id="slide-org01e54bc">
+<h2 id="org01e54bc">who -u</h2>
 <p>
 Dan Čermák
 </p>
@@ -65,8 +65,8 @@ Dan Čermák
 </section>
 </section>
 <section>
-<section id="slide-org33b1775">
-<h2 id="org33b1775">What is a Language Server?</h2>
+<section id="slide-orgf4cbf91">
+<h2 id="orgf4cbf91">What is a Language Server?</h2>
 <aside class="notes">
 <ul>
 <li>old state: every language has a plugin for every editor</li>
@@ -85,7 +85,7 @@ Dan Čermák
 </p>
 
 </section>
-<section id="slide-org33b1775-split">
+<section id="slide-orgf4cbf91-split">
 <p>
 with a Language Server:
 </p>
@@ -98,8 +98,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-orgcbdc0e0">
-<h2 id="orgcbdc0e0">RPM Spec Files</h2>
+<section id="slide-org4e2c7e7">
+<h2 id="org4e2c7e7">RPM Spec Files</h2>
 <p data-fragment-index="1" class="fragment appear">
 <img src="./media/rpm-spec-file-example.png" height="400px"/>
 </p>
@@ -113,8 +113,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org7181ffb">
-<h2 id="org7181ffb">Why?</h2>
+<section id="slide-org5d43833">
+<h2 id="org5d43833">Why?</h2>
 <ul>
 <li class="fragment appear">Editor plugins simplistic &amp; inconsistent</li>
 <li class="fragment appear">I want a real IDE for spec files</li>
@@ -124,8 +124,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org9ed61d1">
-<h2 id="org9ed61d1">Building the LSP</h2>
+<section id="slide-orga72c664">
+<h2 id="orga72c664">Building the LSP</h2>
 <ul>
 <li class="fragment appear">Build as part of <a href="https://hackweek.opensuse.org/23/projects/lsp-server-for-spec-files">Hackweek 23</a> by <a href="https://floss.social/@mcepl">Matěj Cepl</a>, <a href="https://dancermak.name">Dan Čermák</a> &amp; Jehan Singh</li>
 <li class="fragment appear"><i class="fa-brands fa-python"></i> Python</li>
@@ -135,8 +135,8 @@ with a Language Server:
 </ul>
 
 </section>
-<section id="slide-orgc72ab25">
-<h3 id="orgc72ab25">Features</h3>
+<section id="slide-orga38fcb4">
+<h3 id="orga38fcb4">Features</h3>
 <ul>
 <li class="fragment appear">autocompletion using your system macros + spec sections</li>
 <li class="fragment appear">expand macros on hover</li>
@@ -147,23 +147,15 @@ with a Language Server:
 </ul>
 
 </section>
-<section id="slide-orgba68dc6">
-<h3 id="orgba68dc6">Autocompletion &amp; Macro Expansion</h3>
-<ul>
-<li class="fragment appear"><i class="fa-brands fa-python"></i> <code>specfile</code> wraps:
-<ul>
-<li><code>rpm -E %_dump</code></li>
-<li><code>rpm -E %${macro}</code></li>
-
-</ul></li>
-<li class="fragment appear">spec sections and additional keywords</li>
-
-</ul>
-
-
 </section>
-<section id="slide-orgeac56eb">
-<h3 id="orgeac56eb">Jump to Definition</h3>
+<section>
+<section id="slide-org7d5fa52">
+<h2 id="org7d5fa52">Demo!</h2>
+<div class="outline-text-2" id="text-org7d5fa52">
+</div>
+</section>
+<section id="slide-org2553db9">
+<h3 id="org2553db9">Jump to Definition</h3>
 <aside class="notes">
 <ul>
 <li>macros can have origins, in practice you see: <code>GLOBAL</code>, <code>SPEC</code>, <code>MACROFILES</code></li>
@@ -186,8 +178,8 @@ with a Language Server:
 
 
 </section>
-<section id="slide-org02cad51">
-<h3 id="org02cad51">Container Mode</h3>
+<section id="slide-org6992cf2">
+<h3 id="org6992cf2">Container Mode</h3>
 <aside class="notes">
 <ul>
 <li>rpm is using installed macros</li>
@@ -208,13 +200,13 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org56646ba">
-<h2 id="org56646ba">Demo!</h2>
-<div class="outline-text-2" id="text-org56646ba">
+<section id="slide-org65e82c0">
+<h2 id="org65e82c0">Demo!</h2>
+<div class="outline-text-2" id="text-org65e82c0">
 </div>
 </section>
-<section id="slide-orgf08d350">
-<h3 id="orgf08d350">Challenges</h3>
+<section id="slide-org4c42c64">
+<h3 id="org4c42c64">Challenges</h3>
 <ul>
 <li class="fragment appear">hidden global state</li>
 <li class="fragment appear">in memory storage required</li>
@@ -227,8 +219,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org8c44e04">
-<h2 id="org8c44e04">Roadmap</h2>
+<section id="slide-orgf4a2abc">
+<h2 id="orgf4a2abc">Roadmap</h2>
 <ul>
 <li class="fragment appear">improve container mode</li>
 <li class="fragment appear">investigate <a href="https://gitlab.com/cryptomilk/tree-sitter-rpmspec">tree-sitter</a> integration</li>
@@ -245,8 +237,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-orge1f09c0">
-<h2 id="orge1f09c0">💙 Thank you 💚</h2>
+<section id="slide-org5d73e67">
+<h2 id="org5d73e67">💙 Thank you 💚</h2>
 <ul>
 <li>Matěj Cepl</li>
 <li>Maxwell G</li>
@@ -261,8 +253,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-org1c80690">
-<h2 id="org1c80690">Links</h2>
+<section id="slide-org7d11505">
+<h2 id="org7d11505">Links</h2>
 <p>
 <img src="media/presentation-qr.svg" height="300px"/>
 </p>
@@ -279,8 +271,8 @@ with a Language Server:
 </section>
 </section>
 <section>
-<section id="slide-orgc83cfbb">
-<h2 id="orgc83cfbb">Questions?</h2>
+<section id="slide-org77af73c">
+<h2 id="org77af73c">Questions?</h2>
 <p class="fragment (appear)">
 Answers!
 </p>
